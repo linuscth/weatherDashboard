@@ -1,0 +1,18 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+header {
+    background: #FCFFB2;
+    border-bottom: 5px solid #B0DAFF;
+    opacity: 80%;
+}
+
+h1,
+h2 {
+    color: #B0DAFF;
+    padding: 10px;
+
+}
