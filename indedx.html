@@ -14,19 +14,19 @@
 <body>
     <header class="d-flex justify-content-between">
         <h1> weather Dashboard</h1>
-        <h2>today's date:</h1>
+        <h2 class="todayDate">today's date:</h1>
     </header>
     <div class="row">
         <aside class="bg-info-subtle col-3 vh-100 text-primary-emphasis">
-            <form class="searh-form py-5 px-2">
+            <form class="searh-form py-5 px-3">
                 <label for="city" class="my-3">City Name</label>
                 <br>
                 <input type="text" class="cityNameInput my-3" placeholder="CityName">
                 <br>
-                <button type="submit" class="btn btn-secondary btn-sm searchBtn my-3">search</button>
+                <button type="submit" class="btn btn-secondary btn-md searchBtn my-2">search</button>
             </form>
             <div class="previousSearch">
-                <ul class="previousSearchList"></ul>
+                <div class="previousSearchList"></div>
             </div>
         </aside>
         <div class="col-8  vh-100">
@@ -38,17 +38,11 @@
             </div>
 
             <h4>Today weather info</h4>
-            <div class="todayWeatherBox row"></div>
+            <div class="todayDiv row"></div>
 
 
             <h4>5 Day Forcast</h4>
             <div class="forcastResult d-flex">
-                <div class="day1"></div>
-                <div class="day2"></div>
-                <div class="day3"></div>
-                <div class="day4"></div>
-                <div class="day5"></div>
-
             </div>
 
         </div>
