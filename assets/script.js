@@ -1,7 +1,6 @@
 var todayDate = $('.todayDate')
 var dayJsDate = dayjs().format('MM/DD/YYYY')
 var cityNameInput = $('.cityNameInput')
-var searchBtn = $('.searchBtn')
 var searchResultList = $('.searchResultList')
 var searchItemDisplay = $('.searchItemDisplay')
 var apiKey = '6684afbdcc563782b42479261d5a0380';
@@ -9,6 +8,7 @@ var forcastResult = $('.forcastResult')
 var todayDiv = $('.todayDiv')
 var previousSearchLocation = []
 var previousSearchList = $('.previousSearchList')
+
 $(todayDate).text("today's date:" + dayJsDate)
 
 init()
@@ -28,13 +28,17 @@ function getLocalStorage() {
     }
     previousSearchLocation.push(...parsedstoredPreviousLocation)
 }
+function removePreviousUl() {
+    $('.previousBox').remove()
+
+}
 //show previous result function, and list them as a list
 function showPreviousResult() {
-    $('.previousBox').remove()
+    // $('.previousBox').remove()
     for (let k = 0; k < previousSearchLocation.length; k++) {
         var ulEl = $('<ul class= "list-group previousBox">')
-        var liEl = $('<li class= "list-group-item d-flex justify-content-between">')
-        var buttonEl = $('<button type="submit" class="py-2 px-3 ">✓</button>')
+        var liEl = $('<li class= "list-group-item d-flex justify-content-between hello">')
+        var buttonEl = $('<button type="submit" class="py-2 px-3 searchBtn ">✓</button>')
         $(liEl).text(previousSearchLocation[k])
         $(liEl).text(previousSearchLocation[k])
         $(liEl).append(buttonEl)
@@ -62,7 +66,14 @@ $('.searchBtn').on('click', function (event) {
     clearPreviousResult();
     clearPreviousForecast();
     clearPreviousTodayinfo();
-    cityNameInputValue = cityNameInput.val();
+    var cityNameInputValue = ''
+    console.log(event.target.parentElement.nodeName);
+    if (event.target.parentElement.nodeName === 'FORM') {
+        cityNameInputValue = cityNameInput.val();
+    }
+    if (event.target.parentElement.nodeName === 'LI') {
+        cityNameInputValue = event.target.parentNode.textContent
+    }
 
     if (cityNameInputValue) {
         var latlonUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityNameInputValue + '&limit=1&appid=' + apiKey;
@@ -96,6 +107,7 @@ $('.searchBtn').on('click', function (event) {
     }
 })
 
+// set local storage 
 function setLocalStorage(city) {
     console.log(city);
     if (previousSearchLocation.includes(city) || city === undefined) {
@@ -122,7 +134,6 @@ $(document).on('click', '.selectBtn', function () {
     setLocalStorage(city)
     presentTodayWeather(pickedLat, pickedLon)
     prsent5DayForecast(pickedLat, pickedLon)
-    showPreviousResult()
 
 })
 
