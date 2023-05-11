@@ -76,7 +76,7 @@ $('.searchBtn').on('click', function (event) {
     }
 
     if (cityNameInputValue) {
-        var latlonUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityNameInputValue + '&limit=1&appid=' + apiKey;
+        var latlonUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityNameInputValue + '&limit=1&appid=' + apiKey;
         fetch(latlonUrl)
             .then(
                 function (response) {
