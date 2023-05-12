@@ -10,3 +10,14 @@ The code initializes several variables and sets up event listeners for the searc
 The code uses the jQuery library to manipulate the DOM and make AJAX requests to the OpenWeatherMap API. It also uses the Day.js library to format the date. The code stores previous search locations in the browser's local storage using JSON.
 
 Overall, the code is well-organized and easy to follow. It uses descriptive variable names and includes comments to explain what each section of the code does. However, there are some areas where the code could be improved, such as error handling and code optimization.
+
+## Link 
+
+repo https://github.com/linuscth/weatherDashboardLinks 
+
+url https://linuscth.github.io/weatherDashboard/Links
+
+## Screenshots
+
+![Ascreenshot1](./assets/Screen%20Shot%202023-05-11%20at%206.47.44%20PM.png)
+![Ascreenshot2](./assets/Screen%20Shot%202023-05-11%20at%206.49.05%20PM.png)
