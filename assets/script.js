@@ -34,7 +34,7 @@ function removePreviousUl() {
 }
 //show previous result function, and list them as a list
 function showPreviousResult() {
-    // $('.previousBox').remove()
+    $('.previousBox').remove()
     for (let k = 0; k < previousSearchLocation.length; k++) {
         var ulEl = $('<ul class= "list-group previousBox">')
         var liEl = $('<li class= "list-group-item d-flex justify-content-between hello">')
@@ -61,7 +61,7 @@ function clearPreviousTodayinfo() {
 }
 
 //addd event listener for the search button
-$('.searchBtn').on('click', function (event) {
+$(document).on('click', '.searchBtn', function (event) {
     event.preventDefault();
     clearPreviousResult();
     clearPreviousForecast();
@@ -132,6 +132,7 @@ $(document).on('click', '.selectBtn', function () {
     console.log(pickedLat);
     console.log(pickedLon);
     setLocalStorage(city)
+    showPreviousResult()
     presentTodayWeather(pickedLat, pickedLon)
     prsent5DayForecast(pickedLat, pickedLon)
 
